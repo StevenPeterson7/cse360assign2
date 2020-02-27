@@ -1,10 +1,12 @@
 /* *
  * @author Steven Peterson
  * @id 415
- * @assignment 1
+ * @assignment 2
  * SimpleList class that implements a list and count. Users can add, remove or 
  * search integers in the list, count the number of elements in the list or 
- * return the contents of the list
+ * return the contents of the list. Users can also append integers to the list,
+ * find the first or last integer in the list or find the total number of
+ * available slots in the list.
  */
 
 package cse360assign2;
@@ -12,8 +14,20 @@ package cse360assign2;
 /**
  * 
  * SimpleList has two private variables: an array of integers, list, and an 
- * integer, count. SimpleList has a constructor, SimpleList that sets count 
+ * integer, count. SimpleList has a constructor, SimpleList() that sets count 
  * to 0 and list to an array of 10 elements.
+ * 
+ * Simple list also contains the method:
+ * void add(int add)
+ * void remove(int remove)
+ * int count()
+ * String toString()
+ * int search(int value)
+ * void append(int append)
+ * int first()
+ * int last()
+ * int size()
+ * 
  * @author Steven Peterson
  *
  */
@@ -43,7 +57,7 @@ public class SimpleList {
 	 * integer to be added to the list
 	 */
 		
-	void add(int add) {
+	public void add(int add) {
 		
 		if (count == list.length - 1) {
 			//create list of new length to hold more integers
@@ -160,7 +174,6 @@ public class SimpleList {
 		}
 		list[count] = append;
 		count ++;
-		
 	}
 	
 	/**
@@ -173,7 +186,6 @@ public class SimpleList {
 		}else {
 			return list[0];
 		}
-		
 	}
 	
 	/**
@@ -184,9 +196,8 @@ public class SimpleList {
 		if(count == 0) {
 			return -1;
 		}else {
-			return list[count -1];
+			return list[count - 1];
 		}
-		
 	}
 	
 	/**
@@ -197,8 +208,6 @@ public class SimpleList {
 		return list.length;
 		
 	}
-	
-	
-	
+		
 	
 }
