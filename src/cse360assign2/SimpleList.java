@@ -36,26 +36,37 @@ public class SimpleList {
 	}
 	
 	/**
-	 * Adds a new integer to the list and increments the count.
+	 * Add a new integer to the list, increment the count and extend 
+	 * the list if necessary.
 	 * 
-	 * @param add 
-	 * integer to add to the list
+	 * @param add
+	 * integer to be added to the list
 	 */
-	
-	public void addInt(int add) {
-		//shift elements to the right
-		for(int i = 9; i > 0; i--) {
+		
+	void add(int add) {
+		
+		if (count == list.length - 1) {
+			//create list of new length to hold more integers
+			int[] temp_list = new int [(int) (list.length*1.5)];
+			for(int index = 0; index < list.length; index++) {
+				temp_list[index] = list[index];
+			}
+			list = temp_list;
+			
+		}
+		
+		for(int i = list.length -1; i > 0; i--) {
 			list[i] = list[i-1];
 		}
 		list[0] = add;
-		if(count < 10) {
-			count = count + 1;
-		}
-		
+		count ++;
 	}
+		
+	
 	
 	/**
 	 * Remove a specified integer from the list and decrement the count.
+	 * Reduce the size of the list if appropriate
 	 * 
 	 * @param remove
 	 * integer to be removed from the list
@@ -66,11 +77,20 @@ public class SimpleList {
 		
 		if(index != -1) {
 			//shift elements to the left
-			for(int i = index; i < 9; i++) {
+			for(int i = index; i < list.length-1; i++) {
 				list[i] = list[i+1];
 			}
-			list[9] = 0;
+			list[list.length -1] = 0;
 			count = count-1;
+		}
+		if (count < (int) (list.length*0.75) ) {
+			//create list of new length to hold more integers
+			int[] temp_list = new int [count + 1];
+			for(int l_index = 0; l_index < count; l_index++) {
+				temp_list[l_index] = list[l_index];
+			}
+			list = temp_list;
+			
 		}
 		
 		
@@ -112,7 +132,7 @@ public class SimpleList {
 	 */
 	
 	public int search(int value) {
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < list.length; i++) {
 			if(list[i]==value) {
 				return i;
 			}
