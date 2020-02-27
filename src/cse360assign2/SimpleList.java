@@ -140,4 +140,65 @@ public class SimpleList {
 		return -1;
 	}
 	
+	
+	/**
+	 * Appends value to the end of the list, increments the count and 
+	 * resizes the list if necessary.
+	 * 
+	 * @param append
+	 * value to be appended
+	 */
+	public void append(int append) {
+		if (count == list.length - 1) {
+			//create list of new length to hold more integers
+			int[] temp_list = new int [(int) (list.length*1.5)];
+			for(int index = 0; index < list.length; index++) {
+				temp_list[index] = list[index];
+			}
+			list = temp_list;
+			
+		}
+		list[count] = append;
+		count ++;
+		
+	}
+	
+	/**
+	 * Returns the first value of the list.
+	 * Returns -1 if there are no values.
+	 */
+	public int first() {
+		if(count == 0) {
+			return -1;
+		}else {
+			return list[0];
+		}
+		
+	}
+	
+	/**
+	 * Returns the last value of the list.
+	 * Returns -1 if there are no values.
+	 */
+	public int last() {
+		if(count == 0) {
+			return -1;
+		}else {
+			return list[count -1];
+		}
+		
+	}
+	
+	/**
+	 * Returns the number of possible entries in the list.
+	 * Returns -1 if there are no values.
+	 */
+	public int size() {
+		return list.length;
+		
+	}
+	
+	
+	
+	
 }

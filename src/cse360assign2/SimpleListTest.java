@@ -201,5 +201,167 @@ public class SimpleListTest {
 		l.add(3);
 		assertNotEquals(l.search(1), 1);
 	}
+	
+	/**
+	 * success case test for append()
+	 */
+	@Test
+	public void test_append() {
+		SimpleList l = new SimpleList();
+		l.append(1);
+		l.append(2);
+		l.append(3);
+		assertEquals(l.toString(), "1 2 3");
+	}
+	
+	/**
+	 * second success case test for append()
+	 */
+	@Test
+	public void test_append2() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.append(3);
+		l.add(2);
+		assertEquals(l.toString(), "2 1 3");
+	}
+	
+	/**
+	 * failure case test for append()
+	 */
+	@Test
+	public void test_append3() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.append(3);
+		l.append(2);
+		assertNotEquals(l.toString(), "1 2 3");
+	}
+	
+	/**
+	 * success case test for first()
+	 */
+	@Test
+	public void test_first() {
+		SimpleList l = new SimpleList();
+		l.append(1);
+		l.append(2);
+		l.append(3);
+		assertEquals(l.first(), 1);
+	}
+	
+	/**
+	 * second success case test for first()
+	 */
+	@Test
+	public void test_first2() {
+		SimpleList l = new SimpleList();
+		assertEquals(l.first(), -1);
+	}
+	
+	/**
+	 * failure case test for first()
+	 */
+	@Test
+	public void test_first3() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.append(3);
+		l.append(2);
+		assertNotEquals(l.first(), 2);
+	}
+	
+	/**
+	 * success case test for last()
+	 */
+	@Test
+	public void test_last() {
+		SimpleList l = new SimpleList();
+		l.append(1);
+		l.append(2);
+		l.append(3);
+		assertEquals(l.last(), 3);
+	}
+	
+	/**
+	 * second success case test for last()
+	 */
+	@Test
+	public void test_last2() {
+		SimpleList l = new SimpleList();
+		assertEquals(l.last(), -1);
+	}
+	
+	/**
+	 * failure case test for last()
+	 */
+	@Test
+	public void test_last3() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.append(3);
+		l.append(2);
+		assertNotEquals(l.last(), 1);
+	}
+	
+	
+	/**
+	 * success case test for size()
+	 */
+	@Test
+	public void test_size() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		assertEquals(l.size(), 10);
+	}
+	
+	/**
+	 * second success case test for size()
+	 */
+	@Test
+	public void test_size2() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(11);
+		l.add(12);
+		assertEquals(l.size(), 15);
+	}
+	/**
+	 * third success case test for size()
+	 */
+	@Test
+	public void test_size3() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(11);
+		l.add(12);
+		l.remove(12);
+		l.remove(11);
+		l.remove(10);
+		l.remove(9);
+		l.remove(8);
+		l.remove(7);
+		assertEquals(l.size(), 8);
+	}
 
 }
